@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Width="100" Height="50" VerticalAlignment="Center" 
+                HorizontalAlignment="Center" Content="Click Me!"
+                Click="testClick_Handler"/>
     </Grid>
 </Window>
