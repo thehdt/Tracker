@@ -13,7 +13,7 @@ namespace Tracker.DatabaseUtilites
     public static class MADHelper
     {
         private static OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["MADbConnectionString"].ConnectionString);
-        public static MADbStatus StoreBug(Bug bug)
+        public static DBStatus StoreBug(Bug bug)
         {
             try
             {
@@ -24,13 +24,13 @@ namespace Tracker.DatabaseUtilites
                 cmd.Connection = connection;
                 cmd.ExecuteNonQuery();
                 connection.Close();
-                return MADbStatus.Success;
+                return DBStatus.Success;
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"{ex.Message}");
                 connection.Close();
-                return MADbStatus.Failed;
+                return DBStatus.Failed;
             }
         }
     }
