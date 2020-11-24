@@ -70,6 +70,7 @@
       <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="DatabaseUtilites\MADHelper.cs" />
+    <Compile Include="DatabaseUtilites\SQLDbHelper.cs" />
     <Compile Include="Enumerations\MADbStatus.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

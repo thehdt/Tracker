@@ -33,7 +33,7 @@ namespace Tracker
             System.Diagnostics.Debug.WriteLine($"Hello");
             Bug bug = new Bug
             {
-                ID = "1234",
+                ID = "12354",
                 Title = "RandomTitle",
                 Description = "this is another description",
                 Severity = 5,
@@ -44,7 +44,7 @@ namespace Tracker
             System.Diagnostics.Debug.WriteLine($"ID: {bug.ID} - Title: {bug.Title} - Description: {bug.Description} - Severity: {bug.Severity} - " +
                 $"CreateDate: {bug.CreateDate} - ModifiedDate: {bug.ModifiedDate}");
 
-            MADbStatus status = MADHelper.StoreBug(bug);
+            DBStatus status = MADHelper.StoreBug(bug);
             System.Diagnostics.Debug.WriteLine($"{status.ToString()}");
         }
     }

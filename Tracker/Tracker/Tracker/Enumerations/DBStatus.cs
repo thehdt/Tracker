@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tracker.Enumerations
 {
-    public enum MADbStatus
+    public enum DBStatus
     {
         Success,
         Failed,
