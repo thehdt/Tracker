@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TrackerModels;
+using Tracker.Models;
+using Tracker.DatabaseUtilites;
+using Tracker.Enumerations;
 
 namespace Tracker
 {
@@ -33,7 +35,7 @@ namespace Tracker
             {
                 ID = "1234",
                 Title = "RandomTitle",
-                Description = "Random Description",
+                Description = "this is another description",
                 Severity = 5,
                 CreateDate = DateTime.Now,
                 ModifiedDate = DateTime.Now
@@ -41,6 +43,9 @@ namespace Tracker
 
             System.Diagnostics.Debug.WriteLine($"ID: {bug.ID} - Title: {bug.Title} - Description: {bug.Description} - Severity: {bug.Severity} - " +
                 $"CreateDate: {bug.CreateDate} - ModifiedDate: {bug.ModifiedDate}");
+
+            MADbStatus status = MADHelper.StoreBug(bug);
+            System.Diagnostics.Debug.WriteLine($"{status.ToString()}");
         }
     }
 }
