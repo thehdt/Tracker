@@ -1,0 +1,35 @@
+﻿<Window x:Class="Tracker.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tracker"
+        xmlns:VM="clr-namespace:Tracker.ViewModels"
+        xmlns:cvrt="clr-namespace:Tracker.Converters"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Tracker Login" Height="350" Width="550">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles\TextBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <VM:LoginViewModel x:Key="ViewModel"/>
+            <cvrt:InverseBooleanConverter x:Key="InverseBool"/>
+            <cvrt:CodeToCaption x:Key="CodeToCaption"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource ViewModel}">
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock Text="{Binding Converter={StaticResource CodeToCaption}, ConverterParameter=txt_welcome}" FontWeight="Bold" FontSize="20" Margin="5,0,0,20"/>
+            
+            <TextBox x:Name="usernameTxtBox" Tag="User name" Width="250" Style="{StaticResource TrackerTextBox}"
+                     TextChanged="username_TextChanged"/>
+            <PasswordBox x:Name="passwordTxtBox" Tag="Password" Width="250" Style="{StaticResource TrackerPasswordBox}"
+                     Margin="0,20,0,0" PasswordChanged="password_TextChanged" IsEnabled="{Binding IsUsernameEmpty, Converter={StaticResource InverseBool}}"/>
+
+            <Button Margin="0,40,20,0" Width="100" Height="50" HorizontalAlignment="Right"
+                    Content="Login" Click="loginClick_Handler" 
+                    IsEnabled="{Binding IsLoginReady}"/>
+        </StackPanel>
+    </Grid>
+</Window>
