@@ -12,25 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Tracker.Models;
-using Tracker.DatabaseUtilites;
-using Tracker.Enumerations;
 using Tracker.ViewModels;
 using Tracker.Utilities;
 
-namespace Tracker
+namespace Tracker.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class LoginPage : Page
     {
         private readonly LoginViewModel VM;
-        public LoginWindow()
+
+        public LoginPage()
         {
             InitializeComponent();
             VM = (LoginViewModel)this.Resources["ViewModel"];
-            this.Title = GlobalAppData.RM.GetString("app_name");
         }
 
         private void loginClick_Handler(object sender, RoutedEventArgs e)
