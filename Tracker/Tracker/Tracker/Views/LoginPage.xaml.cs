@@ -1,28 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Tracker.ViewModels;
-using Tracker.Utilities;
+using Tracker.Interfaces;
+using Tracker.Enumerations;
 
 namespace Tracker.Views
 {
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : Page, INavigationPage
     {
         private readonly LoginViewModel VM;
+        public event Action<int, int> SetWindowSize;
+        public event Action<PageNames> MoveForward;
+        public event Action MoveBackwards;
 
         public LoginPage()
         {
@@ -38,7 +31,10 @@ namespace Tracker.Views
             string password = passwordTxtBox.Password.Trim();
 
             if (Equals(username, "hieu") && Equals(password, "hieu"))
-                MessageBox.Show("username and password is correct!");
+            {
+                SetWindowSize(800, 600);
+                MoveForward(PageNames.FeaturesPage);
+            }
             else
                 MessageBox.Show("username and password is incorrect!");
         }
