@@ -61,7 +61,7 @@ namespace Tracker.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tracker.
+        ///   Looks up a localized string similar to TRACKR.
         /// </summary>
         internal static string app_name {
             get {
@@ -70,7 +70,7 @@ namespace Tracker.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to the Tracker.
+        ///   Looks up a localized string similar to Welcome to the TRACKR.
         /// </summary>
         internal static string txt_welcome {
             get {
