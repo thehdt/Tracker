@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tracker" Loaded="Window_Loaded"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Title="TRACKR" Height="400" Width="600">
+        Title="T R A K R" Height="400" Width="600">
     <Grid>
         <DockPanel>
             <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>

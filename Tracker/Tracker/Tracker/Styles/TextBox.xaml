@@ -4,7 +4,7 @@
     <Style x:Key="TrackerTextBox" TargetType="{x:Type TextBox}">
         <Setter Property="Height" Value="56"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderBrush" Value="White"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Padding" Value="-2,0"/>
         <Setter Property="Template">
@@ -34,7 +34,7 @@
     <Style x:Key="TrackerPasswordBox" TargetType="{x:Type PasswordBox}">
         <Setter Property="Height" Value="56"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderBrush" Value="White"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Padding" Value="-2,0"/>
         <Setter Property="Template">

@@ -13,6 +13,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="..\Styles\TextBox.xaml"/>
+                <ResourceDictionary Source="..\Styles\Buttons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <vm:LoginViewModel x:Key="ViewModel"/>
             <cvrt:InverseBooleanConverter x:Key="InverseBool"/>
@@ -20,17 +21,18 @@
         </ResourceDictionary>
     </Page.Resources>
     
-    <Grid DataContext="{StaticResource ViewModel}">
+    <Grid DataContext="{StaticResource ViewModel}" Background="Black">
         <StackPanel VerticalAlignment="Center">
-            <TextBlock Text="{Binding Converter={StaticResource CodeToCaption}, ConverterParameter=txt_welcome}" FontWeight="Bold" FontSize="20" Margin="5,0,0,20"/>
+            <TextBlock Text="{Binding Converter={StaticResource CodeToCaption}, ConverterParameter=app_name}" FontWeight="Bold" FontSize="20" Margin="5,0,0,20"/>
 
-            <TextBox x:Name="usernameTxtBox" Tag="User name" Width="250" Style="{StaticResource TrackerTextBox}"
+            <TextBox x:Name="usernameTxtBox" Tag="User name" Width="250" Style="{StaticResource TrackerTextBox}" Foreground="White"
                      TextChanged="username_TextChanged"/>
-            <PasswordBox x:Name="passwordTxtBox" Tag="Password" Width="250" Style="{StaticResource TrackerPasswordBox}"
+            
+            <PasswordBox x:Name="passwordTxtBox" Tag="Password" Width="250" Style="{StaticResource TrackerPasswordBox}" Foreground="White"
                      Margin="0,20,0,0" PasswordChanged="password_TextChanged" IsEnabled="{Binding IsUsernameEmpty, Converter={StaticResource InverseBool}}"/>
 
-            <Button Margin="0,40,20,0" Width="100" Height="50" HorizontalAlignment="Right"
-                    Content="Login" Click="loginClick_Handler" 
+            <Button Margin="0,40,20,0" Width="100" Height="50" HorizontalAlignment="Center" Style="{StaticResource TrackerButton}"
+                    Content="{Binding Converter={StaticResource CodeToCaption}, ConverterParameter=btn_sign_in}" Click="loginClick_Handler" 
                     IsEnabled="{Binding IsLoginReady}"/>
         </StackPanel>
     </Grid>
