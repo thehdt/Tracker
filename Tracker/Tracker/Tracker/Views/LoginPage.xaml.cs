@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using Tracker.ViewModels;
 using Tracker.Interfaces;
 using Tracker.Enumerations;
+using System.Windows.Input;
 
 namespace Tracker.Views
 {
@@ -43,9 +44,14 @@ namespace Tracker.Views
         {
             System.Diagnostics.Debug.WriteLine($"Inside username_TextChanged");
 
-            VM.IsUsernameEmpty = usernameTxtBox.Text.Trim() == string.Empty;
+            TextBox internalTxtBox = usernameTxtBox.Template.FindName("PART_EditableTextBox", usernameTxtBox) as TextBox;
 
-            VM.IsLoginReady = !VM.IsUsernameEmpty && !VM.IsPasswordEmpty;
+            if (internalTxtBox != null)
+            { 
+                VM.IsUsernameEmpty = internalTxtBox.Text.Trim() == string.Empty;
+
+                VM.IsLoginReady = !VM.IsUsernameEmpty && !VM.IsPasswordEmpty;
+            }
         }
 
         private void password_TextChanged(object sender, RoutedEventArgs e)
@@ -55,6 +61,16 @@ namespace Tracker.Views
             VM.IsPasswordEmpty = passwordTxtBox.Password.Trim() == string.Empty;
 
             VM.IsLoginReady = !VM.IsUsernameEmpty && !VM.IsPasswordEmpty;
+        }
+
+        private void Grid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox textBox = Keyboard.FocusedElement as TextBox;
+            if (textBox != null)
+            {
+                TraversalRequest tRequest = new TraversalRequest(FocusNavigationDirection.Next);
+                textBox.MoveFocus(tRequest);
+            }
         }
     }
 }

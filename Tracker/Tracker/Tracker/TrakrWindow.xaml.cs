@@ -8,9 +8,9 @@ namespace Tracker
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class TrackrWindow : Window
+    public partial class TrakrWindow : Window
     {
-        public TrackrWindow()
+        public TrakrWindow()
         {
             InitializeComponent();
         }

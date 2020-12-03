@@ -58,6 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Converters\CodeToCaption.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="Converters\TextToVisibilityConverter.cs" />
     <Compile Include="Enumerations\PageTitles.cs" />
     <Compile Include="Interfaces\INavigationPage.cs" />
     <Compile Include="Resources\en.Designer.cs">
@@ -78,7 +79,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrackrWindow.xaml">
+    <Page Include="TrakrWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -94,8 +95,8 @@
     <Compile Include="DatabaseUtilites\MADHelper.cs" />
     <Compile Include="DatabaseUtilites\SQLDbHelper.cs" />
     <Compile Include="Enumerations\DBStatus.cs" />
-    <Compile Include="TrackrWindow.xaml.cs">
-      <DependentUpon>TrackrWindow.xaml</DependentUpon>
+    <Compile Include="TrakrWindow.xaml.cs">
+      <DependentUpon>TrakrWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Styles\TextBox.xaml">
