@@ -61,11 +61,20 @@ namespace Tracker.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to T R A K R.
+        ///   Looks up a localized string similar to TRAKR.
         /// </summary>
         internal static string app_name {
             get {
                 return ResourceManager.GetString("app_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to T  R  A  K  R.
+        /// </summary>
+        internal static string app_title {
+            get {
+                return ResourceManager.GetString("app_title", resourceCulture);
             }
         }
         
