@@ -56,7 +56,7 @@ namespace Tracker.Views
 
         private void password_TextChanged(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine($"Inside password_TextChanged");
+            System.Diagnostics.Debug.WriteLine($"Inside password_TextChanged()");
 
             VM.IsPasswordEmpty = passwordTxtBox.Password.Trim() == string.Empty;
 
@@ -66,11 +66,31 @@ namespace Tracker.Views
         private void Grid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             TextBox textBox = Keyboard.FocusedElement as TextBox;
+            PasswordBox pwBox = Keyboard.FocusedElement as PasswordBox;
+            TraversalRequest tRequest = new TraversalRequest(FocusNavigationDirection.Next);
             if (textBox != null)
             {
-                TraversalRequest tRequest = new TraversalRequest(FocusNavigationDirection.Next);
                 textBox.MoveFocus(tRequest);
             }
+            else if (pwBox != null)
+            {
+                pwBox.MoveFocus(tRequest);
+            }
+
+        }
+
+        private void passwordTxtBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine($"Inside passwordTxtBox_LostFocus()");
+            TextBlock textBlock = passwordTxtBox.Template.FindName("PasswordTextBlock", passwordTxtBox) as TextBlock;
+            textBlock.Visibility = (VM.IsPasswordEmpty)? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void passwordTxtBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine($"Inside passwordTxtBox_GotFocus()");
+            TextBlock textBlock = passwordTxtBox.Template.FindName("PasswordTextBlock", passwordTxtBox) as TextBlock;
+            textBlock.Visibility = Visibility.Collapsed;
         }
     }
 }
