@@ -50,5 +50,8 @@ namespace Tracker.ViewModels
                 RaisePropertyChanged("IsPasswordEmpty");
             }
         }
+
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

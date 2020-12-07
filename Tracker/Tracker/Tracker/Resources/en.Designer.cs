@@ -95,5 +95,32 @@ namespace Tracker.Resources {
                 return ResourceManager.GetString("txt_welcome", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P A S S W O R D.
+        /// </summary>
+        internal static string txtBox_password {
+            get {
+                return ResourceManager.GetString("txtBox_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E N T E R  A  P R O J E C T  N A M E.
+        /// </summary>
+        internal static string txtBox_projectName {
+            get {
+                return ResourceManager.GetString("txtBox_projectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to U S E R N A M E.
+        /// </summary>
+        internal static string txtBox_username {
+            get {
+                return ResourceManager.GetString("txtBox_username", resourceCulture);
+            }
+        }
     }
 }

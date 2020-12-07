@@ -10,7 +10,7 @@ namespace Tracker.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (parameter == null)
-                throw new InvalidOperationException("The target must be a string");
+                throw new InvalidOperationException("The parameter must be a string");
 
             return GlobalAppData.RM.GetString((string)parameter);
         }
