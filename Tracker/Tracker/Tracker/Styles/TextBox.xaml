@@ -5,7 +5,7 @@
     
     <FontFamily x:Key="DinAlternate">../Fonts/#DIN</FontFamily>
     <cvtr:TextToVisibilityConverter x:Key="TextToVisible"/>
-    <Style x:Key="TrackerTextBox" TargetType="{x:Type TextBox}">
+    <Style x:Key="TrakrTextBox" TargetType="{x:Type TextBox}">
         <Setter Property="Height" Value="45"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="BorderBrush" Value="#F6F6F6"/>
@@ -18,7 +18,7 @@
                         <Border x:Name="textFieldBoxBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                             <Grid x:Name="textFieldGrid">
                                 <TextBlock VerticalAlignment="Center" FontSize="12" Foreground="#F6F6F6" Text="{TemplateBinding Tag}"
-                                           Margin="10,20,0,0" FontWeight="Medium" FontFamily="{StaticResource DinAlternate}" Opacity=".6"
+                                           Margin="5,20,0,0" FontWeight="Medium" FontFamily="{StaticResource DinAlternate}" Opacity=".6"
                                            IsHitTestVisible="False">
                                     <TextBlock.Visibility>
                                         <MultiBinding Converter="{StaticResource TextToVisible}">
@@ -31,7 +31,7 @@
                                 <TextBox x:Name="PART_EditableTextBox" Focusable="True" HorizontalScrollBarVisibility="Hidden" Foreground="#f6f6f6"
                                             VerticalScrollBarVisibility="Hidden" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Text="{TemplateBinding Text}"
                                             UseLayoutRounding="{TemplateBinding UseLayoutRounding}" VerticalAlignment="Center" FontFamily="{StaticResource DinAlternate}"
-                                            Margin="10,20,0,0" FontWeight="Light" Height="56" BorderThickness="0" Background="Transparent"
+                                            Margin="5,20,0,0" FontWeight="Light" Height="56" BorderThickness="0" Background="Transparent"
                                         Width="{TemplateBinding ActualWidth}" VerticalContentAlignment="Center"/>
 
                             </Grid>
@@ -42,7 +42,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="TrackerPasswordBox" TargetType="{x:Type PasswordBox}">
+    <Style x:Key="TrakrPasswordBox" TargetType="{x:Type PasswordBox}">
         <Setter Property="Height" Value="45"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="BorderBrush" Value="#f6f6f6"/>
@@ -58,14 +58,14 @@
                         <Border x:Name="textFieldBoxBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                             <Grid x:Name="textFieldGrid">
                                 <TextBlock x:Name="PasswordTextBlock" VerticalAlignment="Center" FontSize="12" Foreground="#F6F6F6" Text="{TemplateBinding Tag}"
-                                           Margin="10,20,0,0" FontWeight="Medium" FontFamily="{StaticResource DinAlternate}" Opacity=".6"
+                                           Margin="5,20,0,0" FontWeight="Medium" FontFamily="{StaticResource DinAlternate}" Opacity=".6"
                                            IsHitTestVisible="True">
                                 </TextBlock>
 
                                 <ScrollViewer x:Name="PART_ContentHost" Focusable="True" HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Left"
                                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="Hidden" 
                                             UseLayoutRounding="{TemplateBinding UseLayoutRounding}" VerticalAlignment="Center" 
-                                            Margin="10,20,40,0" Height="28" BorderThickness="0" Background="Transparent"/>
+                                            Margin="5,20,40,0" Height="28" BorderThickness="0" Background="Transparent"/>
 
                             </Grid>
                         </Border>

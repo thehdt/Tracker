@@ -56,17 +56,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\CodeToCaption.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\TextToVisibilityConverter.cs" />
     <Compile Include="Enumerations\PageTitles.cs" />
     <Compile Include="Interfaces\INavigationPage.cs" />
+    <Compile Include="Models\Project.cs" />
     <Compile Include="Resources\en.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>en.resx</DependentUpon>
     </Compile>
+    <Compile Include="Styles\StyleProperties.cs" />
     <Compile Include="Utilities\GlobalAppData.cs" />
+    <Compile Include="ViewModels\FeaturesViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\FeaturesPage.xaml.cs">
@@ -162,6 +166,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Icons\exit-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

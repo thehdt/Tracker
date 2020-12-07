@@ -79,6 +79,15 @@ namespace Tracker.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to C R E A T E.
+        /// </summary>
+        internal static string btn_create {
+            get {
+                return ResourceManager.GetString("btn_create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to S I G N  I N.
         /// </summary>
         internal static string btn_sign_in {

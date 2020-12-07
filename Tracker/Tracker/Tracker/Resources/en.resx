@@ -123,6 +123,9 @@
   <data name="app_title" xml:space="preserve">
     <value>T  R  A  K  R</value>
   </data>
+  <data name="btn_create" xml:space="preserve">
+    <value>C R E A T E</value>
+  </data>
   <data name="btn_sign_in" xml:space="preserve">
     <value>S I G N  I N</value>
   </data>
