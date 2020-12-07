@@ -79,6 +79,15 @@ namespace Tracker.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to C R E A T E.
+        /// </summary>
+        internal static string btn_create {
+            get {
+                return ResourceManager.GetString("btn_create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to S I G N  I N.
         /// </summary>
         internal static string btn_sign_in {
@@ -93,6 +102,33 @@ namespace Tracker.Resources {
         internal static string txt_welcome {
             get {
                 return ResourceManager.GetString("txt_welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P A S S W O R D.
+        /// </summary>
+        internal static string txtBox_password {
+            get {
+                return ResourceManager.GetString("txtBox_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E N T E R  A  P R O J E C T  N A M E.
+        /// </summary>
+        internal static string txtBox_projectName {
+            get {
+                return ResourceManager.GetString("txtBox_projectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to U S E R N A M E.
+        /// </summary>
+        internal static string txtBox_username {
+            get {
+                return ResourceManager.GetString("txtBox_username", resourceCulture);
             }
         }
     }

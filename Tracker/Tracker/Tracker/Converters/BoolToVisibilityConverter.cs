@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
-using Tracker.Utilities;
 
 namespace Tracker.Converters
 {
-    public class CodeToCaption : IValueConverter
+    public class BoolToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (parameter == null)
-                throw new InvalidOperationException("The parameter must be a string");
+            if (!(value is bool))
+                throw new InvalidOperationException("Value must be not null.");
 
-            return GlobalAppData.RM.GetString((string)parameter);
+            return ((bool)value) ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

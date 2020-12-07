@@ -123,8 +123,20 @@
   <data name="app_title" xml:space="preserve">
     <value>T  R  A  K  R</value>
   </data>
+  <data name="btn_create" xml:space="preserve">
+    <value>C R E A T E</value>
+  </data>
   <data name="btn_sign_in" xml:space="preserve">
     <value>S I G N  I N</value>
+  </data>
+  <data name="txtBox_password" xml:space="preserve">
+    <value>P A S S W O R D</value>
+  </data>
+  <data name="txtBox_projectName" xml:space="preserve">
+    <value>E N T E R  A  P R O J E C T  N A M E</value>
+  </data>
+  <data name="txtBox_username" xml:space="preserve">
+    <value>U S E R N A M E</value>
   </data>
   <data name="txt_welcome" xml:space="preserve">
     <value>Welcome to the TRACKR</value>

@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Tracker.Styles">
     <FontFamily x:Key="DinAlternate">../Fonts/#DIN</FontFamily>
-    <Style x:Key="TrackerButton" TargetType="{x:Type Button}">
+    <Style x:Key="TrakrButton" TargetType="{x:Type Button}">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="FontFamily" Value="{StaticResource DinAlternate}"/>
         <Setter Property="Foreground" Value="#f6f6f6"/>
@@ -29,6 +29,19 @@
                         </Trigger>
                         
                     </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ImageTrakrButton" TargetType="{x:Type Button}">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="{TemplateBinding Background}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="{Binding Path=(local:StyleProperties.IconImage), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

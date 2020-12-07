@@ -28,10 +28,7 @@ namespace Tracker.Views
         {
             System.Diagnostics.Debug.WriteLine($"Inside loginClick_Handler()");
 
-            string username = usernameTxtBox.Text.Trim();
-            string password = passwordTxtBox.Password.Trim();
-
-            if (Equals(username, "hieu") && Equals(password, "hieu"))
+            if (Equals(VM.Username, "hieu") && Equals(VM.Password, "hieu"))
             {
                 SetWindowSize(800, 600);
                 MoveForward(PageNames.FeaturesPage);
@@ -49,6 +46,8 @@ namespace Tracker.Views
             if (internalTxtBox != null)
             { 
                 VM.IsUsernameEmpty = internalTxtBox.Text.Trim() == string.Empty;
+              
+                VM.Username = internalTxtBox.Text.Trim();
 
                 VM.IsLoginReady = !VM.IsUsernameEmpty && !VM.IsPasswordEmpty;
             }
@@ -59,6 +58,8 @@ namespace Tracker.Views
             System.Diagnostics.Debug.WriteLine($"Inside password_TextChanged()");
 
             VM.IsPasswordEmpty = passwordTxtBox.Password.Trim() == string.Empty;
+
+            VM.Password = passwordTxtBox.Password.Trim();
 
             VM.IsLoginReady = !VM.IsUsernameEmpty && !VM.IsPasswordEmpty;
         }

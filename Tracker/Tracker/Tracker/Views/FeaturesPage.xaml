@@ -4,11 +4,49 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Tracker.Views"
+      xmlns:vm="clr-namespace:Tracker.ViewModels"
+      xmlns:cvrt="clr-namespace:Tracker.Converters"
+      xmlns:sty="clr-namespace:Tracker.Styles"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="FeaturesPage">
+      Title="FeaturesPage" Loaded="FeaturesPage_Loaded">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Styles\Buttons.xaml"/>
+                <ResourceDictionary Source="..\Styles\Textbox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <vm:FeaturesViewModel x:Key="ViewModel"/>
+            <cvrt:BoolToVisibilityConverter x:Key="BoolToVisible"/>
+            <cvrt:CodeToCaption x:Key="CodeToCaption"/>
+            <cvrt:InverseBooleanConverter x:Key="InverseBool"/>
+        </ResourceDictionary>
+    </Page.Resources>
 
-    <Grid>
+    <Grid Background="Black" DataContext="{StaticResource ViewModel}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         
+        <StackPanel Grid.Column="0">
+            <ListBox ItemsSource="{Binding Projects}" DisplayMemberPath="Name"/>
+            <Button Content="Create a project" Click="newProjectDisplay_Click"/>
+        </StackPanel>
+
+        <Grid x:Name="projectCreateGrid" Background="Gray" Opacity=".6" Grid.ColumnSpan="2" PreviewMouseDown="projectCreateGrid_MouseDown"
+              Visibility="{Binding IsCreatingProject, Converter={StaticResource BoolToVisible}}">
+
+            <Button Height="30" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{StaticResource ImageTrakrButton}"
+                   Click="exitProjectDisplay_Click" Background="Transparent" Margin="5,10,0,0" sty:StyleProperties.IconImage="..\Icons\exit-icon.png" />
+
+            <Border CornerRadius="2" Background="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Height="180" Width="400"/>
+
+            <TextBox x:Name="projectTxtBox" Margin="0,0,0,30" VerticalAlignment="Center" Width="250" Tag="{Binding Converter={StaticResource CodeToCaption}, ConverterParameter=txtBox_projectName}" 
+                     HorizontalAlignment="Center" Style="{StaticResource TrakrTextBox}" TextChanged="projectName_TextChanged"/>
+
+            <Button Content="{Binding Converter={StaticResource CodeToCaption}, ConverterParameter=btn_create}" Height="40" Width="100" Style="{StaticResource TrakrButton}" Margin="300,130,0,0"
+                    Click="createProject_Click" IsEnabled="{Binding IsProjectNameEmpty}"/>
+        </Grid>
     </Grid>
 </Page>

@@ -26,14 +26,14 @@
                        HorizontalAlignment="Center" FontSize="40" Margin="0,10,0,20" FontWeight="Medium"
                        Foreground="#f6f6f6" FontFamily="{StaticResource DinAlternate}"/>
 
-            <TextBox x:Name="usernameTxtBox" Tag="U S E R N A M E" Width="350" Style="{StaticResource TrackerTextBox}" Foreground="#f6f6f6"
+            <TextBox x:Name="usernameTxtBox" Tag="{Binding Converter={StaticResource CodeToCaption}, ConverterParameter=txtBox_username}" Width="350" Style="{StaticResource TrakrTextBox}" Foreground="#f6f6f6"
                      TextChanged="username_TextChanged"/>
 
-            <PasswordBox x:Name="passwordTxtBox" Tag="P A S S W O R D" Width="350" Style="{StaticResource TrackerPasswordBox}" Foreground="#f6f6f6"
+            <PasswordBox x:Name="passwordTxtBox" Tag="{Binding Converter={StaticResource CodeToCaption}, ConverterParameter=txtBox_password}" Width="350" Style="{StaticResource TrakrPasswordBox}" Foreground="#f6f6f6"
                      Margin="0,15,0,0" PasswordChanged="password_TextChanged" IsEnabled="{Binding IsUsernameEmpty, Converter={StaticResource InverseBool}}"
                          PasswordChar="*" LostFocus="passwordTxtBox_LostFocus" GotFocus="passwordTxtBox_GotFocus" MaxLength="32"/>
 
-            <Button Margin="0,20,0,0" Width="100" Height="50" HorizontalAlignment="Center" Style="{StaticResource TrackerButton}"
+            <Button Margin="0,20,0,0" Width="100" Height="50" HorizontalAlignment="Center" Style="{StaticResource TrakrButton}"
                     Content="{Binding Converter={StaticResource CodeToCaption}, ConverterParameter=btn_sign_in}" Click="loginClick_Handler" 
                     IsEnabled="{Binding IsLoginReady}"/>
         </StackPanel>
