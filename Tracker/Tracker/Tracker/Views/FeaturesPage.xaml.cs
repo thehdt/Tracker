@@ -6,6 +6,8 @@ using Tracker.ViewModels;
 using System.Windows.Input;
 using Tracker.Models;
 using System.Collections.ObjectModel;
+using Tracker.DatabaseUtilites;
+using System.Windows;
 
 namespace Tracker.Views
 {
@@ -32,6 +34,8 @@ namespace Tracker.Views
         private void FeaturesPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             VM.Projects = new ObservableCollection<Project>();
+            //DBStatus doesDbExist = SQLDbHelper.DoesDatabaseExist();
+            //MessageBox.Show(doesDbExist.ToString());
         }
         
         private void newProjectDisplay_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -51,11 +55,20 @@ namespace Tracker.Views
 
         private void createProject_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            VM.Projects.Add(new Project { Name = VM.ProjectName, ID = new Guid().ToString()});
+            var project = new Project { Name = VM.ProjectName, ID = Guid.NewGuid().ToString() };
+
+            VM.Projects.Add(project);
 
             VM.IsCreatingProject = false;
             VM.IsProjectNameEmpty = false;
             VM.ProjectName = string.Empty;
+
+            string query = SQLDbHelper.CreateProjectQuery(project);
+            DBStatus status = SQLDbHelper.AddQuery(query);
+            if (status == DBStatus.Failed)
+            {
+                System.Diagnostics.Debug.WriteLine($"Storing project information failed.");
+            }
         }
 
         private void projectName_TextChanged(object sender, TextChangedEventArgs e)

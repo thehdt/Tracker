@@ -54,5 +54,10 @@ namespace Tracker
                 mainFrame.Navigate(page);
             }
         }
+
+        private void VerifyTrakrDbInfoExists()
+        {
+
+        }
     }
 }
