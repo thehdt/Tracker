@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using Tracker.Models;
+using Tracker.DatabaseUtilites;
 
 namespace Tracker.ViewModels
 {
