@@ -25,13 +25,17 @@
 
     <Grid Background="Black" DataContext="{StaticResource ViewModel}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+
         <StackPanel Grid.Column="0">
-            <ListBox ItemsSource="{Binding Projects}" DisplayMemberPath="Name"/>
-            <Button Content="Create a project" Click="newProjectDisplay_Click"/>
+            <ListBox ItemsSource="{Binding Projects}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedProject}"
+                     SelectionChanged="projectSelected_SelectionChanged"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Delete" Padding="30,0" IsEnabled="{Binding IsDeleteProject}" Click="deleteProject_Click"/>
+                <Button Content="Create" Click="newProjectDisplay_Click" Padding="30,0"/>
+            </StackPanel>
         </StackPanel>
 
         <Grid x:Name="projectCreateGrid" Background="Gray" Opacity=".6" Grid.ColumnSpan="2" PreviewMouseDown="projectCreateGrid_MouseDown"

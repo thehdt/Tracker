@@ -30,9 +30,9 @@ namespace Tracker.Views
         //Will need to do a loading of bugs/tasks for projects
         // Populate list of projects
 
-        private void FeaturesPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private async void FeaturesPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            VM.Projects = new ObservableCollection<Project>(SQLDbHelper.GetProjects());
+            VM.Projects = new ObservableCollection<Project>(await SQLDbHelper.GetProjects());
         }
         
         private void newProjectDisplay_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -50,7 +50,7 @@ namespace Tracker.Views
             }
         }
 
-        private void createProject_Click(object sender, System.Windows.RoutedEventArgs e)
+        private async void createProject_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             var project = new Project { Name = VM.ProjectName, ID = Guid.NewGuid().ToString() };
 
@@ -60,7 +60,7 @@ namespace Tracker.Views
             VM.IsProjectNameEmpty = false;
             VM.ProjectName = string.Empty;
 
-            DBStatus status = SQLDbHelper.AddProject(project);
+            DBStatus status = await SQLDbHelper.AddProject(project);
             if (status == DBStatus.Failed)
             {
                 System.Diagnostics.Debug.WriteLine($"Storing project information failed.");
@@ -83,6 +83,27 @@ namespace Tracker.Views
             VM.IsCreatingProject = false;
             VM.IsProjectNameEmpty = false;
             VM.ProjectName = string.Empty;
+        }
+
+        private async void deleteProject_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine($"Deleting Project with name: {VM.SelectedProject.Name}");
+
+            DBStatus status = await SQLDbHelper.DeleteProject(VM.SelectedProject);
+
+            if (status == DBStatus.Success)
+            {
+                VM.Projects.Remove(VM.SelectedProject);
+                VM.SelectedProject = null;
+
+                VM.IsDeleteProject = false;
+            }
+        }
+
+        private void projectSelected_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            VM.IsDeleteProject = true;
+
         }
     }
 }
