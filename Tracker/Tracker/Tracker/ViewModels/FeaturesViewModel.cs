@@ -47,6 +47,23 @@ namespace Tracker.ViewModels
             }
         }
 
+        private bool _IsDeleteProject = false;
+        public bool IsDeleteProject
+        {
+            get
+            {
+                return _IsDeleteProject;
+            }
+            set
+            {
+                _IsDeleteProject = value;
+                RaisePropertyChanged("IsDeleteProject");
+            }
+        }
+
+        public Project SelectedProject { get; set; }
+
         public string ProjectName { get; set; }
+
     }
 }
