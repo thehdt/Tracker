@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="9f16296cdce24bf4929dbe14c3f9569f" Name="Diagram1">
         <EntityTypeShape EntityType="TrakrDbModel.Project" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrakrDbModel.Bug" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -26,5 +26,6 @@ namespace Tracker.DatabaseUtilites
         }
     
         public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<Bug> Bugs { get; set; }
     }
 }

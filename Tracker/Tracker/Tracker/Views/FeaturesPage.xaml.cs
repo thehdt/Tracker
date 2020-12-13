@@ -27,9 +27,6 @@ namespace Tracker.Views
             VM = (FeaturesViewModel)this.Resources["ViewModel"];
         }
 
-        //Will need to do a loading of bugs/tasks for projects
-        // Populate list of projects
-
         private async void FeaturesPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             VM.Projects = new ObservableCollection<Project>(await SQLDbHelper.GetProjects());
@@ -60,8 +57,7 @@ namespace Tracker.Views
             VM.IsProjectNameEmpty = false;
             VM.ProjectName = string.Empty;
 
-            DBStatus status = await SQLDbHelper.AddProject(project);
-            if (status == DBStatus.Failed)
+            if (await SQLDbHelper.AddProject(project))
             {
                 System.Diagnostics.Debug.WriteLine($"Storing project information failed.");
             }
@@ -89,9 +85,7 @@ namespace Tracker.Views
         {
             System.Diagnostics.Debug.WriteLine($"Deleting Project with name: {VM.SelectedProject.Name}");
 
-            DBStatus status = await SQLDbHelper.DeleteProject(VM.SelectedProject);
-
-            if (status == DBStatus.Success)
+            if (await SQLDbHelper.DeleteProject(VM.SelectedProject))
             {
                 VM.Projects.Remove(VM.SelectedProject);
                 VM.SelectedProject = null;

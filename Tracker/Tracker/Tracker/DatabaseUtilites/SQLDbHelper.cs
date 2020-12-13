@@ -11,7 +11,7 @@ namespace Tracker.DatabaseUtilites
 {
     public static class SQLDbHelper
     {
-        public async static Task<DBStatus> AddProject(Project project)
+        public async static Task<bool> AddProject(Project project)
         {
             System.Diagnostics.Debug.WriteLine($"Inside AddProject()");
             try
@@ -20,14 +20,14 @@ namespace Tracker.DatabaseUtilites
                 {
                     context.Projects.Add(project);
                     int stateEntries = await context.SaveChangesAsync();
-                    return stateEntries > 0 ? DBStatus.Success : DBStatus.Failed;
+                    return stateEntries > 0;
                 }
 
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
-                return DBStatus.Failed;
+                return false;
             }
         }
 
@@ -48,7 +48,7 @@ namespace Tracker.DatabaseUtilites
             }
         }
 
-        public async static Task<DBStatus> DeleteProject(Project project)
+        public async static Task<bool> DeleteProject(Project project)
         {
             System.Diagnostics.Debug.WriteLine($"Inside DeleteProjecT()");
 
@@ -58,14 +58,35 @@ namespace Tracker.DatabaseUtilites
                 {
                     context.Entry(project).State = EntityState.Deleted;
                     int rows = await context.SaveChangesAsync();
-                    return (rows == 1) ? DBStatus.Success : DBStatus.Failed;
+                    return (rows > 0);
                 }
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
-                return DBStatus.Failed;
+                return false;
             }
+        }
+
+        public async static Task<bool> AddBug(Bug bug)
+        {
+            System.Diagnostics.Debug.WriteLine($"Inside AddBug()");
+            
+            try
+            {
+                using (TrakrDbEntities context = new TrakrDbEntities())
+                {
+                    context.Bugs.Add(bug);
+                    int rows = await context.SaveChangesAsync();
+                    return (rows > 0);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                return false;
+            }
+
         }
     }
 }

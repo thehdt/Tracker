@@ -69,6 +69,9 @@
     <Compile Include="Converters\CodeToCaption.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\TextToVisibilityConverter.cs" />
+    <Compile Include="DatabaseUtilites\Bug.cs">
+      <DependentUpon>TrakrDbEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUtilites\Project.cs">
       <DependentUpon>TrakrDbEntities.tt</DependentUpon>
     </Compile>
@@ -118,7 +121,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DatabaseUtilites\SQLDbHelper.cs" />
-    <Compile Include="Enumerations\DBStatus.cs" />
     <Compile Include="TrakrWindow.xaml.cs">
       <DependentUpon>TrakrWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
