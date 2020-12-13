@@ -38,8 +38,7 @@ namespace Tracker.DatabaseUtilites
             {
                 using (TrakrDbEntities context = new TrakrDbEntities())
                 {
-                    var projects = await (from project in context.Projects select project).ToListAsync();
-                    return new List<Project>(projects);
+                    return await (from project in context.Projects select project).ToListAsync();
                 }
             }
             catch (Exception ex)
