@@ -117,12 +117,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DatabaseDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseUtilites\MADHelper.cs" />
     <Compile Include="DatabaseUtilites\SQLDbHelper.cs" />
     <Compile Include="Enumerations\DBStatus.cs" />
     <Compile Include="TrakrWindow.xaml.cs">
@@ -164,17 +158,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="DatabaseDataSet1.xsc">
-      <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DatabaseDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DatabaseDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DatabaseDataSet1.xss">
-      <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
-    </None>
     <Resource Include="Fonts\DINBlackAlternate.ttf" />
     <Resource Include="Fonts\DINBold.ttf" />
     <Resource Include="Fonts\DINLight.ttf" />
